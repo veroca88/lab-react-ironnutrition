@@ -2,12 +2,12 @@ import React from "react";
 
 class FoodBox extends React.Component {
   render() {
-    // const {name, calories, image, quatity} = this.props
     const {
-      eachFood: { name, calories, image }
+      eachFood: { name, calories, image, id, quantity, handleChange, clearSearch, addToItemList }
     } = this.props;
     //Here I'm using props because in the App.js in <FoodBox /> I'm passing property using map method
     return (
+      <div onClick={clearSearch} id='foodBox'>
       <article className="box media">
         <div className="media-left">
           <figure className="image is-64x64">
@@ -25,14 +25,15 @@ class FoodBox extends React.Component {
         <div className="media-right">
           <div className="field has-addons">
             <div className="control">
-              <input className="input" type="number" value="0" />
+              <input onChange={handleChange} className="input" type="number" defaultValue="1" />
             </div>
             <div className="control">
-              <button className="button is-info">+</button>
+              <button id={id} onClick={addToItemList} className="button is-info">+</button>
             </div>
           </div>
         </div>
       </article>
+      </div>
     );
   }
 }
