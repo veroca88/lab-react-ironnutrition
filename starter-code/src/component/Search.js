@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Search({handleSearch, clearSearch}) {
+const Search = ({handleSearch, clearSearch}) => {
   return (
     <div>
       <input
@@ -14,3 +14,5 @@ export default function Search({handleSearch, clearSearch}) {
     </div>
   );
 }
+
+export default Search

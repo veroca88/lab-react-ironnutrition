@@ -1,14 +1,8 @@
 import React from "react";
 
-class FoodBox extends React.Component {
-  render() {
-    const {
-      eachFood: { name, calories, image, id, quantity, handleChange, clearSearch, addToItemList }
-    } = this.props;
-    //Here I'm using props because in the App.js in <FoodBox /> I'm passing property using map method
-    return (
-      <div onClick={clearSearch} id='foodBox'>
-      <article className="box media">
+const FoodBox = ({ name, calories, image, id, handleChange, addToItemList }) => {
+  return (
+      <article className="box media container">
         <div className="media-left">
           <figure className="image is-64x64">
             <img src={image} alt={name} />
@@ -23,7 +17,7 @@ class FoodBox extends React.Component {
           </div>
         </div>
         <div className="media-right">
-          <div className="field has-addons">
+          <div className="field has-addons quantity">
             <div className="control">
               <input onChange={handleChange} className="input" type="number" defaultValue="1" />
             </div>
@@ -33,9 +27,7 @@ class FoodBox extends React.Component {
           </div>
         </div>
       </article>
-      </div>
     );
   }
-}
 
 export default FoodBox;
